@@ -1,7 +1,7 @@
 .navbar{
     padding-inline: 60px;
     padding-block: 20px;
-    height: 90px;
+    height: 70px;
     background-color: white;
     box-shadow: 0px 2px 7px rgba(0,0,0,0.1)
 }
@@ -17,7 +17,7 @@
 }
 
 .brand .title{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Garamond,Arial, Helvetica, sans-serif;
     font-size: 30px;
     color: blue;
     font-weight: 700;
@@ -43,9 +43,9 @@
     list-style: none;
     column-gap: 20px;
     li{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px ;
-        font-weight: 400;
+        font-family: sans-serif;
+        font-size: 15px ;
+        font-weight: 500;
         line-height: 23px;
         cursor: pointer;
         color: gray;
