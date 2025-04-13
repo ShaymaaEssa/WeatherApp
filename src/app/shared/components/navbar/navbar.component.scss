@@ -1,0 +1,63 @@
+.navbar{
+    padding-inline: 60px;
+    padding-block: 20px;
+    height: 90px;
+    background-color: white;
+    box-shadow: 0px 2px 7px rgba(0,0,0,0.1)
+}
+
+.inner, .brand, .navbar-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inner{
+    justify-content: space-between;
+}
+
+.brand .title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: blue;
+    font-weight: 700;
+    line-height: 40px;
+
+    span{
+        color: darkgoldenrod;
+    }
+    
+}
+
+
+
+.icon{
+    img{
+        width: 100%;
+    }
+    width:70px;
+    height: 70px;
+}
+
+.navbar-menu{
+    list-style: none;
+    column-gap: 20px;
+    li{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px ;
+        font-weight: 400;
+        line-height: 23px;
+        cursor: pointer;
+        color: gray;
+
+        &:hover{
+            color: black;
+        }
+
+        &.active{
+            color: blue;
+        }
+    }
+
+    
+}
