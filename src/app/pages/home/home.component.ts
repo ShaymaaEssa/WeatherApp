@@ -12,19 +12,41 @@ export class HomeComponent implements OnInit{
   private readonly weatherService = inject(WeatherapiService);
 
   ngOnInit(): void {
-    this.getCurrentWeather();
+    this.getCurrentLocation();
+    
   }
 
-  getCurrentWeather(){
-    this.weatherService.getCurrentWeather().subscribe({
+  getCurrentWeather(lat:number, lng:number){
+    this.weatherService.getCurrentWeather(lat, lng).subscribe({
 
       next:(res)=>{
-        console.log(res.data);
+        console.log(res);
       }, 
       error:(err)=>{
         console.log(err.message)
       }
     });
+  }
+
+  getCurrentLocation(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(
+        (position)=>{
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          console.log(`lat = ${lat}, lng = ${lng}`);
+          this.getCurrentWeather(lat, lng);
+        }, 
+        (error)=>{
+          console.log(`Current Location error: ${error}`);
+          console.log(error);
+          this.getCurrentWeather(0, 0); //get weather for cairo city by default
+        }
+      )
+    }
+    else {
+      console.log("Geo Location is not supported in this browser!");
+    }
   }
 
 }

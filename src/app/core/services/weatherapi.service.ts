@@ -10,7 +10,15 @@ export class WeatherapiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCurrentWeather():Observable<any>{
-    return this.httpClient.get(`${environment.baseURL}/current.json?key=${environment.apiKey}&q=Cairo`)
+  getCurrentWeather(lat:number, lng:number):Observable<any>{
+    // return this.httpClient.get(`${environment.baseURL}/current.json?key=${environment.apiKey}&q=Cairo`)
+    if(lat!=0 && lng!=0){
+      return this.httpClient.get(`${environment.baseURL}/current.json?key=${environment.apiKey}&q=${lat},${lng}`)
+
+    }
+    else{
+      return this.httpClient.get(`${environment.baseURL}/current.json?key=${environment.apiKey}&q=Cairo`)
+
+    }
   }
 }
