@@ -1,3 +1,13 @@
+section{
+    background-image: url("../../../../public/images/sky-1441936_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .overlay{
+        background-color: rgba(255,255,255,0.4);
+        padding-block: 50px;
+    }
+}
 .container{
     padding-inline: 60px;
     padding-block: 20px;
@@ -8,9 +18,11 @@
     p{
         color: #898E8F;
         font-family: sans-serif;
-        font-size: 16px;
+        font-size: 18px;
         line-height: 20px;
         padding-top: 10px;
+        padding-bottom: 20px;
+        font-weight: 500;
     }
 }
 
@@ -22,6 +34,46 @@ h2{
 
 .grid{
     padding-top: 20px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "div1"
+    "div2"
+    "div3"
+    "div4"
+    "div5";
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "div1 div2"
+        "div1 div3"
+        "div4 div5";
+    }
+
+    @media (min-width: 992px)  {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+          "div1 div2 div4"
+          "div1 div3 div5";
+      }
+
+      .div1 {
+        grid-area: div1;
+      }
+      .div2 {
+        grid-area: div2;
+      }
+      .div3 {
+        grid-area: div3;
+      }
+      .div4 {
+        grid-area: div4;
+      }
+      .div5 {
+        grid-area: div5;
+      }
 }
 .weather-info{
     padding: 60px 30px;
@@ -34,6 +86,21 @@ h2{
 
     text-align: center;
     font-family: sans-serif;
+
+    margin-bottom: 20px;
+
+    &:hover{
+        transform: scale(1.04);
+        -webkit-transform: scale(1.04);
+        -moz-transform: scale(1.04);
+        -ms-transform: scale(1.04);
+        -o-transform: scale(1.04);
+        transition: transform 300ms;
+        -webkit-transition: transform 300ms;
+        -moz-transition: transform 300ms;
+        -ms-transition: transform 300ms;
+        -o-transition: transform 300ms;
+}
 }
 
 .city{
@@ -42,6 +109,15 @@ h2{
     justify-content: space-around;
     align-items: center;
     font-size: 23px;
+
+    .icon{
+        width: 70px;
+        height: 70;
+
+        img{
+            width: 100%;
+        }
+    }
 }
 
 .weather-degree{
@@ -49,25 +125,34 @@ h2{
     flex-direction: column;
     align-items: center;
     row-gap: 10px;
-    padding-top: 20px;
+    padding-top: 10px;
     font-size: 20px;
     .degree{
         font-size: 50px;
         font-weight: 700;
     }
+
+
+}
+
+.state{
+    font-size: 30px;
+    font-weight: 700;
 }
 
 .info-row {
     display: grid;
     grid-template-columns: 100px 20px 100px;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 10px;
   
-    span {
-      display: block;
-    }
+
   
     .divider {
       text-align: center;
     }
+  }
+
+  .icon{
+    padding-bottom: 10px;
   }

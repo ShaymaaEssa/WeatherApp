@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { WeatherapiService } from '../../core/services/weatherapi.service';
+import { IWeather } from '../../shared/Interfaces/iweather';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { WeatherapiService } from '../../core/services/weatherapi.service';
 export class HomeComponent implements OnInit{
 
   private readonly weatherService = inject(WeatherapiService);
+  weatherInfo : IWeather = {} as IWeather;
 
   ngOnInit(): void {
     this.getCurrentLocation();
@@ -21,6 +23,7 @@ export class HomeComponent implements OnInit{
 
       next:(res)=>{
         console.log(res);
+        this.weatherInfo = res;
       }, 
       error:(err)=>{
         console.log(err.message)

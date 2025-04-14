@@ -1,52 +1,60 @@
 <section>
-    <div class="container">
-        <div class="info">
-            <h2>Today Weather</h2>
-            <p>We will display here the weather details according to your current GeoLocation</p>
-
-        </div>
-
-        <div class="grid">
-            <div class="weather-info">
-                <div class="city">
-                    <h3>London</h3>
-                    <div class="icon">
-                        <i class="fa-solid fa-sun"></i>
+    <div class="overlay">
+        <div class="container">
+            <div class="info">
+                <h2>Today Weather</h2>
+                <p>We will display here the weather details according to your current GeoLocation</p>
+    
+            </div>
+    
+            <div class="grid">
+                <div class="weather-info div1">
+                    <div class="city">
+                        <h3>{{weatherInfo.location.name}}, {{weatherInfo.location.country}}</h3>
+                        <div class="icon">
+                           <img [src]="weatherInfo.current.condition.icon" [alt]="weatherInfo.current.condition.text">
+                        </div>
+                    </div>
+    
+                    <div class="weather-degree">
+                        <p>{{weatherInfo.location.localtime.split(" ")[0]}}</p>
+                        <span class="degree">{{weatherInfo.current.temp_c}}°</span>
+                        <span class="state">Sunny</span>
+                        <div class="info-row">
+                            <span>Wind</span>
+                            <span class="divider">|</span>
+                            <span>{{weatherInfo.current.wind_kph}} km/h</span>
+                          </div>
+                          
+                          <div class="info-row">
+                            <span>Hum</span>
+                            <span class="divider">|</span>
+                            <span>{{weatherInfo.current.humidity}}%</span>
+                          </div>
                     </div>
                 </div>
-
-                <div class="weather-degree">
-                    <p>Today, 04 April</p>
-                    <span class="degree">24°</span>
-                    <span>Sunny</span>
-                    <div class="info-row">
-                        <span>19 km/h</span>
-                        <span class="divider">|</span>
-                        <span>Wind</span>
-                      </div>
-                      
-                      <div class="info-row">
-                        <span>Hum 22%</span>
-                        <span class="divider">|</span>
-                        <span>22%</span>
-                      </div>
+    
+                <div class="weather-info state div2">
+                    <div class="icon"><i class="fa-solid fa-wind"></i></div>
+                    <p>Wind {{weatherInfo.current.wind_kph}} km/h</p>
                 </div>
-            </div>
-
-            <div class="wind">
-                <div class="icon"><i class="fa-solid fa-wind"></i></div>
-                <p>Wind 19 km/h</p>
-            </div>
-
-            <div class="visibility">
-                <div class="icon"><i class="fa-solid fa-wind"></i></div>
-                <p>Visibility 10 Km</p>
-            </div>
-
-            <div class="humadity">
-                <div class="icon"><i class="fa-solid fa-wind"></i></div>
-                <p>Humidity 22%</p>
+    
+                <div class="weather-info state div3">
+                    <div class="icon"><i class="fa-solid fa-eye"></i></div>
+                    <p>Visibility {{weatherInfo.current.vis_km}} Km</p>
+                </div>
+    
+                <div class="weather-info state div4" >
+                    <div class="icon"><i class="fa-solid fa-droplet"></i></div>
+                    <p>Humidity {{weatherInfo.current.humidity}}%</p>
+                </div>
+    
+                <div class="weather-info state div5" >
+                    <div class="icon"><i class="fa-solid fa-cloud"></i></div>
+                    <p>Cloud {{weatherInfo.current.cloud}}</p>
+                </div>
             </div>
         </div>
     </div>
+
 </section>
