@@ -32,6 +32,44 @@ h2{
     line-height: 23px;
 }
 
+.search{
+    position: relative;
+    width: 60%;
+    margin-inline:auto;
+    .search-country{
+        width: 100%;
+        margin-inline:auto;
+        display: block;
+        padding:15px 10px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        border: none;
+
+        &:focus{
+            border: 1px solid blue;
+            outline: none;
+        }
+        
+    }
+
+    i{
+        position: absolute;
+        top:50%;
+        right:0;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        cursor: pointer;
+}
+
+
+}
+
 .grid{
     padding-top: 20px;
     display: grid;

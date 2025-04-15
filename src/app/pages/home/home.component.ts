@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit{
         this.weatherInfo = res;
       }, 
       error:(err)=>{
-        console.log(err.message)
+        console.log( `Get Current Weather Error: ${err.message}`)
       }
     });
   }
@@ -50,6 +50,17 @@ export class HomeComponent implements OnInit{
     else {
       console.log("Geo Location is not supported in this browser!");
     }
+  }
+
+  searchCountryWeather(country:string){
+    this.weatherService.searchCountryWeather(country).subscribe({
+      next:(res)=>{
+        this.weatherInfo = res;
+      },
+      error:(err)=>{
+        console.log(`Get Search Weather Error: ${err.message}`);
+      }
+    })
   }
 
 }
