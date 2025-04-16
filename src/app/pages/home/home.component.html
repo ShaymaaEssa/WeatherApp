@@ -13,13 +13,13 @@
             
             </div>
     
-            @if(weatherInfo){
+            @if(weatherInfo.location){
                 <div class="grid">
                     <div class="weather-info div1">
                         <div class="city">
                             <h3>{{weatherInfo?.location?.name}}, {{weatherInfo?.location?.country}}</h3>
                             <div class="icon">
-                               <img [src]="weatherInfo?.current?.condition?.icon" [alt]="weatherInfo?.current.condition.text">
+                               <img [src]="weatherInfo?.current?.condition?.icon" [alt]="weatherInfo.current.condition.text">
                             </div>
                         </div>
         
