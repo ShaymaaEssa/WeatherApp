@@ -4,6 +4,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 The design is inspired by the following source: [Template](https://demo.templatemonster.com/demo/330896.html)
 
+API : [WeatherAPI](https://www.weatherapi.com/docs/#intro-request)
 ## Development server
 
 To start a local development server, run:
