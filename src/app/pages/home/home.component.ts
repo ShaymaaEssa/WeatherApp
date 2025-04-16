@@ -13,8 +13,12 @@ export class HomeComponent implements OnInit{
   private readonly weatherService = inject(WeatherapiService);
   weatherInfo : IWeather = {} as IWeather;
 
+  capitals: string[] = ['Dubai', 'Tokyo', 'Ottawa', 'Paris'];
+  countriesWeather: IWeather[] = [];
+
   ngOnInit(): void {
     this.getCurrentLocation();
+    this.getTrendingCountriesWeather();
     
   }
 
@@ -59,6 +63,23 @@ export class HomeComponent implements OnInit{
       },
       error:(err)=>{
         console.log(`Get Search Weather Error: ${err.message}`);
+      }
+    })
+  }
+
+  getTrendingCountriesWeather(){
+    this.capitals.forEach((capital)=>{
+      this.getCapitalWeather(capital);
+    })
+  }
+
+  getCapitalWeather(capital:string){
+    this.weatherService.searchCountryWeather(capital).subscribe({
+      next:(res)=>{
+        this.countriesWeather.push(res);
+      }, 
+      error:(err)=>{
+        console.log(`Trending Country Weather ${capital} error: err`);
       }
     })
   }
