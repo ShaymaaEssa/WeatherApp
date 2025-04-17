@@ -4,16 +4,39 @@
     height: 70px;
     background-color: white;
     box-shadow: 0px 2px 15px rgba(0,0,0,0.1);
+
+    &.menu-active{
+        height: 130px;
+    }
+
+    @media (min-width: 768px) {
+        height: 70px;
+    }
 }
 
-.inner, .brand, .navbar-menu{
+
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+.main-nav,.brand, .navbar-menu{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
-.inner{
+.main-nav{
     justify-content: space-between;
+    width: 100%;
 }
 
 a{
@@ -34,6 +57,13 @@ a{
 }
 
 
+.ham-icon{
+    display: block;
+    cursor: pointer;
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
 
 .icon{
     img{
@@ -43,9 +73,23 @@ a{
     height: 70px;
 }
 
+.menu{
+    display: none;
+    &.active{
+        display: block;
+    }
+    @media (min-width: 768px) {
+        display: block;
+    }
+}
 .navbar-menu{
+    display: flex;
+    flex-direction: column;
     list-style: none;
     column-gap: 20px;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
     li{
         font-family: sans-serif;
         font-size: 15px ;

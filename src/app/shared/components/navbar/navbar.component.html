@@ -1,17 +1,24 @@
-<section class="navbar">
+<section class="navbar " [class.menu-active]="isMenuOpen">
 
     <div class="inner">
-        <a routerLink="/home">
-            <div class="brand">
-                <div class="icon">
-                    <img src="/images/brand.png" alt="weather app logo">
+        <div class="main-nav">
+            <a routerLink="/home">
+                <div class="brand">
+                    <div class="icon">
+                        <img src="/images/brand.png" alt="weather app logo">
+                    </div>
+                    <div class="title">SkyCast<span>.</span></div>
                 </div>
-                <div class="title">SkyCast<span>.</span></div>
+            </a>
+
+            <div class="ham-icon">
+                <i class="fa-solid fa-bars" (click)="toggleNavbarMenu()"></i>
             </div>
-        </a>
+        </div>
 
 
-        <div class="menu">
+
+        <div class="menu" [class.active]="isMenuOpen">
             <ul class="navbar-menu">
                 <li class="active">Home</li>
                 <li>About</li>

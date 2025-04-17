@@ -9,4 +9,9 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarComponent {
 
+  isMenuOpen: boolean = false;
+
+  toggleNavbarMenu(){
+    this.isMenuOpen = !this.isMenuOpen
+  }
 }
