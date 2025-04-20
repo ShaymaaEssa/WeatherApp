@@ -1,6 +1,8 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { provideAnimations } from '@angular/platform-browser/animations'; // <-- ADD this import
+
 
 import { routes } from './app.routes';
 import {
@@ -16,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch(), withInterceptors([ loadingInterceptor])),
-    // importProvidersFrom(NgxSpinnerModule)
+    importProvidersFrom(NgxSpinnerModule),
+    provideAnimations(),
   ],
 };
