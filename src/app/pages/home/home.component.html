@@ -8,7 +8,7 @@
             </div>
 
             <div class="search">
-                <input type="text" #countryInput class="search-country" placeholder="Search For Country ..." (keydown.enter)="searchCountryWeather(countryInput.value)">
+                <input type="text" #countryInput class="search-country" placeholder="Search For Country ..." (keyup)="searchCountryWeather(countryInput.value)">
                 <i class="fa fa-search" (click)="searchCountryWeather(countryInput.value)"></i>
             
             </div>
