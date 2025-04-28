@@ -4,6 +4,7 @@ import { IWeather } from '../../shared/Interfaces/iweather';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { debounce, debounceTime, Subject } from 'rxjs';
 import { json } from 'node:stream/consumers';
+import { IWeatherSpecs } from '../../shared/Interfaces/iweather-specs';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,10 @@ import { json } from 'node:stream/consumers';
 export class HomeComponent implements OnInit{
 
   private readonly weatherService = inject(WeatherapiService);
-  weatherInfo : IWeather = {} as IWeather;
+  weatherInfo : IWeatherSpecs = {} as IWeatherSpecs;
 
   capitals: string[] = ['Dubai', 'Tokyo', 'Ottawa', 'Paris'];
-  countriesWeather: IWeather[] = [];
+  countriesWeather: IWeatherSpecs[] = [];
 
   private readonly ngxSpinnerService = inject(NgxSpinnerService);
 
@@ -89,27 +90,28 @@ export class HomeComponent implements OnInit{
         this.ngxSpinnerService.hide('loading-1');
 
         console.log("weather from cached data !")
+        return;
       }
     }
 
-    else{
-      this.weatherService.searchCountryWeather(country).subscribe({
-        next:(res)=>{
-          this.weatherInfo = res;
-          localStorage.setItem(`weather-${country}`, JSON.stringify({
-            timestamp: new Date().getTime(),
-            weatherData: res
-          }))
-          this.ngxSpinnerService.hide('loading-1');
-          console.log("weather from Live API !")
-        },
-        error:(err)=>{
-          this.ngxSpinnerService.hide('loading-1');
-          alert(`Get Search Weather Error: ${err.message}`);
-          console.log(`Get Search Weather Error: ${err.message}`);
-        }
-      })
-    }
+    this.weatherService.searchCountryWeather(country).subscribe({
+      next:(res)=>{
+        this.weatherInfo = res;
+        localStorage.setItem(`weather-${country}`, JSON.stringify({
+          timestamp: new Date().getTime(),
+          weatherData: res
+        }))
+        this.ngxSpinnerService.hide('loading-1');
+        console.log("weather from Live API !")
+      },
+      error:(err)=>{
+        this.ngxSpinnerService.hide('loading-1');
+        alert(`Get Search Weather Error: ${err.message}`);
+        console.log(`Get Search Weather Error: ${err.message}`);
+      }
+    })
+
+
 
   }
 

@@ -13,52 +13,52 @@
             
             </div>
     
-            @if(weatherInfo.location){
+            @if(weatherInfo.name){
                 <div class="grid">
                     <div class="weather-info div1">
                         <div class="city">
-                            <h3>{{weatherInfo?.location?.name}}, {{weatherInfo?.location?.country}}</h3>
+                            <h3>{{weatherInfo?.name}}, {{weatherInfo?.country}}</h3>
                             <div class="icon">
-                               <img [src]="weatherInfo?.current?.condition?.icon" [alt]="weatherInfo.current.condition.text">
+                               <img [src]="weatherInfo?.condition?.icon" [alt]="weatherInfo.condition.text">
                             </div>
                         </div>
         
                         <div class="weather-degree">
-                            <p>{{weatherInfo.location.localtime.split(" ")[0]}}</p>
-                            <span class="degree">{{weatherInfo.current.temp_c}}°</span>
-                            <span class="state">{{weatherInfo.current.condition.text}}</span>
+                            <p>{{weatherInfo.localtime.split(" ")[0]}}</p>
+                            <span class="degree">{{weatherInfo.temp_c}}°</span>
+                            <span class="state">{{weatherInfo.condition.text}}</span>
                             <div class="info-row">
                                 <span>Wind</span>
                                 <span class="divider">|</span>
-                                <span>{{weatherInfo.current.wind_kph}} km/h</span>
+                                <span>{{weatherInfo.wind_kph}} km/h</span>
                               </div>
                               
                               <div class="info-row">
                                 <span>Hum</span>
                                 <span class="divider">|</span>
-                                <span>{{weatherInfo.current.humidity}}%</span>
+                                <span>{{weatherInfo.humidity}}%</span>
                               </div>
                         </div>
                     </div>
         
                     <div class="weather-info state div2">
                         <div class="icon"><i class="fa-solid fa-wind"></i></div>
-                        <p>Wind {{weatherInfo.current.wind_kph}} km/h</p>
+                        <p>Wind {{weatherInfo.wind_kph}} km/h</p>
                     </div>
         
                     <div class="weather-info state div3">
                         <div class="icon"><i class="fa-solid fa-eye"></i></div>
-                        <p>Visibility {{weatherInfo.current.vis_km}} Km</p>
+                        <p>Visibility {{weatherInfo.vis_km}} Km</p>
                     </div>
         
                     <div class="weather-info state div4" >
                         <div class="icon"><i class="fa-solid fa-droplet"></i></div>
-                        <p>Humidity {{weatherInfo.current.humidity}}%</p>
+                        <p>Humidity {{weatherInfo.humidity}}%</p>
                     </div>
         
                     <div class="weather-info state div5" >
                         <div class="icon"><i class="fa-solid fa-cloud"></i></div>
-                        <p>Cloud {{weatherInfo.current.cloud}}</p>
+                        <p>Cloud {{weatherInfo.cloud}}</p>
                     </div>
                 </div>
             }
@@ -79,16 +79,16 @@
 
         <div class="trendingCountries-grid">
             @for (capital of countriesWeather; track $index) {
-                <div class="capital-card" [class]="capital.location.country.toLowerCase()" >
+                <div class="capital-card" [class]="capital.country.toLowerCase()" >
                     <div class="overlay">
                         <div class="card-info">
                             <div class="state-img">
-                                <img [src]="capital.current.condition.icon" [alt]="capital.current.condition.text">
+                                <img [src]="capital.condition.icon" [alt]="capital.condition.text">
                             </div>
         
-                            <h3 class="temp">{{capital.current.temp_c}}°</h3>
-                            <p class="state">{{capital.current.condition.text}}</p>
-                            <p class="country">{{capital.location.country}}</p>
+                            <h3 class="temp">{{capital.temp_c}}°</h3>
+                            <p class="state">{{capital.condition.text}}</p>
+                            <p class="country">{{capital.country}}</p>
         
                         </div>
                         
