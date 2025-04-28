@@ -8,8 +8,8 @@
             </div>
 
             <div class="search">
-                <input type="text" #countryInput class="search-country" placeholder="Search For Country ..." (keyup)="searchCountryWeather(countryInput.value)">
-                <i class="fa fa-search" (click)="searchCountryWeather(countryInput.value)"></i>
+                <input type="text" #countryInput class="search-country" placeholder="Search For Country ..." (keyup)="onCountryInputSearch(countryInput.value)">
+                <i class="fa fa-search" (click)="onCountryInputSearch(countryInput.value)"></i>
             
             </div>
     
